@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>library</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <CopyLocal>true</CopyLocal>
+  </PropertyGroup>
+  <!-- <ItemGroup><Reference Include="DataModel.Serialization"><HintPath>asa/DataModel.Serialization.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="FSharp.Core.Extensions"><HintPath>asa/FSharp.Core.Extensions.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="JavaScriptHost"><HintPath>asa/JavaScriptHost.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Martingales"><HintPath>asa/Martingales.dll</HintPath></Reference></ItemGroup>
+       <ItemGroup><Reference Include="Microsoft.EventProcessing.Compiler.Operators"><HintPath>asa/Microsoft.EventProcessing.Compiler.Operators.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Microsoft.EventProcessing.HostedRuntimes"><HintPath>asa/Microsoft.EventProcessing.HostedRuntimes.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Microsoft.EventProcessing.RuntimeTypes"><HintPath>asa/Microsoft.EventProcessing.RuntimeTypes.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Microsoft.EventProcessing.SqlQueryRunner"><HintPath>asa/Microsoft.EventProcessing.SqlQueryRunner.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Microsoft.EventProcessing.SteamR.Globalization"><HintPath>asa/Microsoft.EventProcessing.SteamR.Globalization.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Microsoft.EventProcessing.SteamR.Sql.Runtime"><HintPath>asa/Microsoft.EventProcessing.SteamR.Sql.Runtime.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Microsoft.EventProcessing.SteamR.Sql"><HintPath>asa/Microsoft.EventProcessing.SteamR.Sql.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Microsoft.EventProcessing.SteamR"><HintPath>asa/Microsoft.EventProcessing.SteamR.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Microsoft.StreamProcessing.NRT"><HintPath>asa/Microsoft.StreamProcessing.NRT.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Microsoft.Streaming.Globalization"><HintPath>asa/Microsoft.Streaming.Globalization.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Microsoft.Streaming.MachineLearning.Common"><HintPath>asa/Microsoft.Streaming.MachineLearning.Common.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="Microsoft.Streaming.QueryRuntimeAbstraction"><HintPath>asa/Microsoft.Streaming.QueryRuntimeAbstraction.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="SteamRSDKServerSide"><HintPath>asa/SteamRSDKServerSide.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="System.Linq.CompilerServices"><HintPath>asa/System.Linq.CompilerServices.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="System.Linq.Expressions.Bonsai.Serialization"><HintPath>asa/System.Linq.Expressions.Bonsai.Serialization.dll</HintPath></Reference></ItemGroup>
+      <ItemGroup><Reference Include="System.Linq.Expressions.Bonsai"><HintPath>asa/System.Linq.Expressions.Bonsai.dll</HintPath></Reference></ItemGroup>
+-->   
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.1.0" />
+    <PackageReference Include="System.Reactive.Core" Version="4.0.0" />
+    <PackageReference Include="System.Reactive.Interfaces" Version="4.0.0" />
+    <PackageReference Include="System.Reactive.Linq" Version="4.0.0" />
+    <PackageReference Include="Azure.Messaging.EventHubs" Version="5.0.0-preview.5" />
+    <PackageReference Include="Trill" Version="2019.9.4.2" />
+    <PackageReference Include="Microsoft.Azure.StreamInsight.LocalQueryRuntime" Version="1.2.64719.1" />
+    <PackageReference Include="Apache.Arrow" Version="0.14.1" />
+    <PackageReference Include="FSharp.Core" Version="4.5.0.0" />
+  </ItemGroup>
+</Project>
