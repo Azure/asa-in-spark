@@ -59,14 +59,9 @@ public class ASAHost{
     if (this.outputs.Count != 1)
       throw new ArgumentException("Query: '" + sql + "' returned 0 or more than 1 output: " + this.outputs.Count);
 
-    // TODO: disposable
     this.outputs.First().Value.Subscribe(r => this.outputRecords.Enqueue(r));
-    //System.ObservableExtensions.Subscribe(this.outputs.First().Value, r => this.outputRecords.Enqueue(r));
 
     this.memoryAllocator = new NativeMemoryAllocator(alignment: 64);
-    // <typename> <nullable: T|F> <fieldname>
-    // bigint T timestamp,int F value
-    //this.schema = DeserializeSchema(inputSchema);
   }
 
   public void nextOutputRecord_i() {
@@ -77,11 +72,7 @@ public class ASAHost{
     // reset the position of the buffer and do a full batch read;
     outputBuffer.Position = 0;
 
-    //Console.WriteLine("New push Record is called in c#");
-
     RecordBatch currentBatch = reader.ReadNextRecordBatch();
-
-    //Console.WriteLine("Newly read recordBatch length: " + currentBatch.Length);
     
     for (int i = 0; i < currentBatch.Length; i ++)
     {
@@ -112,7 +103,6 @@ public class ASAHost{
             var type = (TimestampType) tArray.Data.DataType;
             double timeStampMilli = tArray.Values[i] / MillisecToTickRatio; 
             DateTime dtDateTime = epoch.AddMilliseconds(timeStampMilli);
-            //Console.WriteLine("tArray data Type:  " + type.Unit + "   Tick Value: " + timeStampMilli + "  time:   " + dtDateTime);
             newInputRow[j] = dtDateTime;
             break;
           case ArrowTypeId.Binary:
@@ -216,8 +206,6 @@ public class ASAHost{
 
   public static IntPtr createASAHost(IntPtr sqlPtr, int sqlLength) {
     string sql = Marshal.PtrToStringUni(sqlPtr, sqlLength);
-
-    // System.Console.WriteLine("C#.createASAHost: " + sqlLength + ": " + sql);
     GCHandle gch = GCHandle.Alloc(new ASAHost(sql));
 
     return GCHandle.ToIntPtr(gch);
@@ -298,12 +286,8 @@ public class ASAHost{
     reader = new ArrowStreamReader(this.outputBuffer, leaveOpen: false);
     // reader one batch to get the arrow schema first
     reader.ReadNextRecordBatch();
-    //The batch should be null since no record should be outputted at this point
-    //Assert.IsNull(nullBatch);
 
-    //Console.WriteLine("Arrow input Schema: " + reader.Schema);
     this.schema = ArrowSchemaToASARecordSchema(reader.Schema);
-    //Console.WriteLine("input ASA schema: " + this.schema);
 
     var result =
                 SqlCompiler.Compile(
@@ -321,12 +305,10 @@ public class ASAHost{
 
     this.outputArrowSchema = builder.Build();
 
-    //Console.WriteLine("Arrow output Schema: " + this.outputArrowSchema.Fields.Count);
     this.writer = new ArrowStreamWriter(this.inputBuffer, this.outputArrowSchema);
     //Write empty batch to send the schema to Java side
     var emptyRecordBatch = createOutputRecordBatch(new List<IRecord>());
 
-    //writer.WriteRecordBatchAsync(new RecordBatch(this.outputArrowSchema, new IArrowArray[this.outputArrowSchema.Fields.Count] ,0)).GetAwaiter().GetResult();
     WriteRecordBatch(emptyRecordBatch);
   }
 
