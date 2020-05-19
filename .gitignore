@@ -1,0 +1,17 @@
+# ignore the cpp build dir
+cpp/build/
+
+# ignore dotnet build dirs
+dotnet/bin/
+dotnet/obj/
+
+# ignore java output dirs
+java/target/
+
+# ignore scala output dirs
+scala/project/
+scala/target/
+
+# ignore jar output files
+*.jar
+

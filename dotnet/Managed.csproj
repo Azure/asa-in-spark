@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>library</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <CopyLocal>true</CopyLocal>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.1.0" />
+    <PackageReference Include="System.Reactive.Core" Version="4.0.0" />
+    <PackageReference Include="System.Reactive.Interfaces" Version="4.0.0" />
+    <PackageReference Include="System.Reactive.Linq" Version="4.0.0" />
+    <PackageReference Include="Azure.Messaging.EventHubs" Version="5.0.0-preview.5" />
+    <PackageReference Include="Trill" Version="2019.9.4.2" />
+    <PackageReference Include="Microsoft.Azure.StreamInsight.LocalQueryRuntime" Version="1.2.64719.1" />
+    <PackageReference Include="Apache.Arrow" Version="0.14.1" />
+    <PackageReference Include="FSharp.Core" Version="4.5.0.0" />
+  </ItemGroup>
+</Project>
